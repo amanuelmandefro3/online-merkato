@@ -1,0 +1,44 @@
+footer{
+    width: 100%;
+    background-color: #0fd06e;
+    color: rgb(51,55,61);
+    font-size: 1.6rem;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;  
+    text-align: left; 
+    padding: 10px; 
+  }
+  .btn{
+    background-color: rgb(51,55,61);
+    color: azure;
+    border:none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  .social-media{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .social-media span{
+    padding: 5px 10px;
+  }
+  @media screen and (max-width: 800px) {
+    .footer {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+  }
+
+  /* .footer p {
+    color: #fff;
+  } */
