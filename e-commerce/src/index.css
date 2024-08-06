@@ -32,6 +32,7 @@ html {
 body {
   font-family: var(--font-family);
   background-color: gainsboro;
+  width: 100%;
   min-height: 100vh;
 }
 
@@ -41,7 +42,7 @@ section {
 }
 
 .container {
-  max-width: 1000px;
+  /* max-width: 1000px; */
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -284,6 +285,7 @@ p {
   justify-content: center;
   align-items: center;
   transition: all 0.3s;
+  
 }
 
 .--btn:hover {
@@ -300,8 +302,8 @@ p {
 
 .--btn-primary {
   margin: 2rem 0;;
-  color: #fff;
-  background: #007bff;
+  color: black;
+  background-color: #28a745;
 }
 .--btn-secondary {
   color: #fff;
@@ -345,15 +347,15 @@ p {
   margin: 5px 0;
 }
 
-.--form-control input {
+.form input {
   font-size: 1.6rem;
   font-weight: 300;
   padding: 8px 1rem;
   border: 1px solid #777;
-  border-radius: 3px;
+  border-radius: 5px;
   outline: none;
 }
-.--form-control select {
+.form select {
   font-size: 1.4rem;
   font-weight: 400;
   padding: 8px 1rem;
@@ -423,9 +425,9 @@ p {
   border-radius: 50%;
 }
 
-a {
+a{
   font-size: 1.4rem;
-  color: var(--dark-blue);
+  color: #333;
   text-decoration: none;
   transition: all 0.2s;
 }

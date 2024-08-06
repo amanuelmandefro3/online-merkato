@@ -3,13 +3,13 @@ footer{
     background-color: #0fd06e;
     color: rgb(51,55,61);
     font-size: 1.6rem;
+    width: 100%;
 }
 
 .footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;  
-    text-align: left; 
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
     padding: 10px; 
   }
   .btn{
@@ -25,8 +25,14 @@ footer{
     align-items: center;
     justify-content: center;
   }
-  .social-media span{
+  .social-media span a{
     padding: 5px 10px;
+  }
+  .social-media span a:hover{
+    color: orangered;
+  }
+  .footer-2 p a :hover {
+    color: orangered;
   }
   @media screen and (max-width: 800px) {
     .footer {
