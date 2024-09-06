@@ -38,7 +38,7 @@ const Checkout = () => {
   const description = `online Merkato payment: email: ${customerEmail}, Amount: ${totalAmount}`;
 
   useEffect(() => {
-    fetch("http://localhost:4242/create-payment-intent", {
+    fetch("https://online-merkato-5.onrender.com/create-payment-intent", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
