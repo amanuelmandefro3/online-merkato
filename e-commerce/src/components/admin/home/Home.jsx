@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
+import InfoBox from "../../infoBox/InfoBox";
+import styles from "./Home.module.scss";
 import { AiFillDollarCircle } from "react-icons/ai";
 import { BsCart4 } from "react-icons/bs";
 import { FaCartArrowDown } from "react-icons/fa";
-import InfoBox from '../../infoBox/InfoBox'
-import './Home.css'
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectProducts,
@@ -15,8 +15,9 @@ import {
   selectTotalOrderAmount,
   STORE_ORDERS,
 } from "../../../redux/slice/orderSlice";
-import useFetchCollection from "../../../customHooks/useFechCollection";
-import Chart from "../../chart/Chart"
+
+import Chart from "../../chart/Chart";
+import useFetchCollection from '../../../customHooks/useFetchCollection';
 
 //Icons
 const earningIcon = <AiFillDollarCircle size={30} color="#b624ff" />;
@@ -45,23 +46,23 @@ const Home = () => {
   }, [dispatch, data, fbProducts]);
 
   return (
-    <div className="home">
+    <div className={styles.home}>
       <h2>Admin Home</h2>
-      <div className="info-box">
+      <div className={styles["info-box"]}>
         <InfoBox
-          cardClass={`styles.card card1`}
+          cardClass={`${styles.card} ${styles.card1}`}
           title={"Earnings"}
           count={`$${totalOrderAmount}`}
           icon={earningIcon}
         />
         <InfoBox
-          cardClass={`card card2`}
+          cardClass={`${styles.card} ${styles.card2}`}
           title={"Products"}
           count={products.length}
           icon={productIcon}
         />
         <InfoBox
-          cardClass={`card card3`}
+          cardClass={`${styles.card} ${styles.card3}`}
           title={"Orders"}
           count={orders.length}
           icon={ordersIcon}
@@ -75,5 +76,3 @@ const Home = () => {
 };
 
 export default Home;
-
-

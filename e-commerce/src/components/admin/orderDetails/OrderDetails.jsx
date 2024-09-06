@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import useFetchDocument from "../../../customHooks/useFetchDocument";
-import "./OrderDetails.css"
+import styles from "./OrderDetails.module.scss";
 import spinnerImg from "../../../assets/spinner.gif";
 import { Link, useParams } from "react-router-dom";
 import ChangeOrderStatus from "../changeOrderStatus/ChangeOrderStatus";
@@ -16,7 +16,7 @@ const OrderDetails = () => {
 
   return (
     <>
-      <div className="table">
+      <div className={styles.table}>
         <h2>Order Details</h2>
         <div>
           <Link to="/admin/orders">&larr; Back To Orders</Link>

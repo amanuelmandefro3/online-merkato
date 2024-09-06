@@ -1,78 +1,89 @@
-import React, { useState } from 'react'
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { Link, useNavigate } from 'react-router-dom'
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import {auth} from '../../firebase/config'
-import Card from '../../components/card/Card'
-import Loader from '../../components/loader/Loader';
+import { useState } from "react";
+import styles from "./auth.module.scss";
+import registerImg from "../../assets/register.png";
+import Card from "../../components/card/Card";
+import { Link, useNavigate } from "react-router-dom";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../firebase/config";
+import Loader from "../../components/loader/Loader";
+import { toast } from "react-toastify";
 
+const Register = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [cPassword, setCPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
-function Register() {
-    //useStates decleation
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [confirmationPassword, setConfirmationPassword] = useState("");
-    const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
-    //navigate
-    const navigate = useNavigate();
-
-    //function that used to handle submit button
-    const registerUser = (event)=>{
-        event.preventDefault();
-        if(password!== confirmationPassword){
-            toast.error("Passwords do not match");
-        }
-        setIsLoading(true)
-        createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            // Signed in 
-            const user = userCredential.user;
-            setIsLoading(false);
-            toast.success("Registration successful");
-            navigate("/login");
-            // ...
-        })
-        .catch((error) => {
-            const errorCode = error.code;
-            toast.error(error.message)
-            setIsLoading(false);
-            // ..
-        });
+  const registerUser = (e) => {
+    e.preventDefault();
+    if (password !== cPassword) {
+      toast.error("Passwords do not match.");
     }
+    setIsLoading(true);
 
-    //return of the register component
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log(user);
+        setIsLoading(false);
+        toast.success("Registration Successful...");
+        navigate("/login");
+      })
+      .catch((error) => {
+        toast.error(error.message);
+        setIsLoading(false);
+      });
+  };
 
+  return (
+    <>
+      {isLoading && <Loader />}
+      <section className={`container ${styles.auth}`}>
+        <Card>
+          <div className={styles.form}>
+            <h2>Register</h2>
 
-    return (
-        <>
-        <ToastContainer />
-        {isLoading && <Loader/>}
-        <section className='auth container'>
-            <Card>
-            <div className='form'>
-                <h2>Register</h2>
-                <form action="" onSubmit={registerUser}>
-                   <input type="email" placeholder='Email' required value = {email} onChange={(event) => setEmail(event.target.value)} />
+            <form onSubmit={registerUser}>
+              <input
+                type="text"
+                placeholder="Email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <input
+                type="password"
+                placeholder="Password"
+                required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <input
+                type="password"
+                placeholder="Confirm Password"
+                required
+                value={cPassword}
+                onChange={(e) => setCPassword(e.target.value)}
+              />
+              <button type="submit" className="--btn --btn-primary --btn-block">
+                Register
+              </button>
+            </form>
 
-                   <input type="password" placeholder='Password' required value={password} onChange={(event)=> setPassword(event.target.value)} />
+            <span className={styles.register}>
+              <p>Already an account?</p>
+              <Link to="/login">Login</Link>
+            </span>
+          </div>
+        </Card>
+        <div className={styles.img}>
+          <img src={registerImg} alt="Register" width="400" />
+        </div>
+      </section>
+    </>
+  );
+};
 
-                   <input type="password" placeholder='Confirm Password' required value={confirmationPassword} onChange={(event) => setConfirmationPassword(event.target.value)} />
-
-
-                   <button className='--btn --btn-primary --btn-block' type = "submit">Register</button>  
-                   <p>Already have an account? <Link to='/login'>Login</Link></p>
-                </form>
-                
-            </div>
-            </Card>
-            
-            
-          
-        </section>
-        </>
-      )
-}
-
-export default Register
+export default Register;

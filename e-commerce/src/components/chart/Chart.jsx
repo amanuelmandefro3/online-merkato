@@ -10,9 +10,9 @@ import {
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
 import Card from "../card/Card";
+import styles from "./Chart.module.scss";
 import { selectOrderHistory } from "../../redux/slice/orderSlice";
 import { useSelector } from "react-redux";
-import './Chart.css'
 
 ChartJS.register(
   CategoryScale,
@@ -74,8 +74,8 @@ const Chart = () => {
   };
 
   return (
-    <div className="charts">
-      <Card cardClass="card">
+    <div className={styles.charts}>
+      <Card cardClass={styles.card}>
         <h3>Order Status Chart</h3>
         <Bar options={options} data={data} />
       </Card>

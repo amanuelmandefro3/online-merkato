@@ -1,43 +1,36 @@
-import './App.css'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import {ToastContainer } from 'react-toastify';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
-//components
-import{Header, Footer} from './components/index'
-
-// pages
-import { Home, Login, Register, Reset, Admin} from './pages/index'
+// Pages
+import { Home, Login, Register, Reset, Admin, Contact } from "./pages";
+// Components
+import { Header, Footer } from "./components";
 import AdminOnlyRoute from "./components/adminOnlyRoute/AdminOnlyRoute";
-import ProductDetails from './components/product/productDetails/ProductDetails';
-import Cart from './pages/cart/Cart'
-import Checkout from './pages/checkout/Checkout'
-import CheckoutDetails from './pages/checkout/CheckoutDetails'
-import CheckoutSuccess from './pages/checkout/CheckoutSuccess'
-import OrderHistory from './pages/orderHistory/OrderHistory'
-import OrderDetails from './pages/orderdetails/OrderDetails'
-import ReviewProducts from './components/reviewProducts/ReviewProduct'
-import NotFound from './pages/notFound/NotFound'
-
-
-
+import ProductDetails from "./components/product/productDetails/ProductDetails";
+import Cart from "./pages/cart/Cart";
+import CheckoutDetails from "./pages/checkout/CheckoutDetails";
+import Checkout from "./pages/checkout/Checkout";
+import CheckoutSuccess from "./pages/checkout/CheckoutSuccess";
+import OrderHistory from "./pages/orderHistory/OrderHistory";
+import OrderDetails from "./pages/orderDetails/OrderDetails";
+import ReviewProducts from "./components/reviewProducts/ReviewProducts";
+import NotFound from "./pages/notFound/NotFound";
+// import Contact from './pages/contact/Contact';
 
 function App() {
-  
-  return(
+  return (
     <>
       <BrowserRouter>
-       <ToastContainer />
+        <ToastContainer />
         <Header />
         <Routes>
-          <Route path="/" element={<Home />}/>
-          <Route path="/login" element={<Login />}/>
-          <Route path="/register" element={<Register />}/>
-          <Route path="/reset" element={<Reset />}/>
-          <Route path="/" element={<Home />}/>
+          <Route path="/" element={<Home />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/reset" element={<Reset />} />
 
-        {/* Admin route will be added here */}
-        <Route
+          <Route
             path="/admin/*"
             element={
               <AdminOnlyRoute>
@@ -59,7 +52,7 @@ function App() {
         <Footer />
       </BrowserRouter>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

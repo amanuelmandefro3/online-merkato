@@ -1,5 +1,5 @@
 import React from 'react'
-import './card.css'
+import './card.module.scss'
 
 function Card({children, cardClass}) {
   return (

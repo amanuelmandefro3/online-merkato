@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import './ProductList.css'
+import styles from './ProductList.module.scss'
+
 import { BsFillGridFill } from "react-icons/bs";
 import { FaListAlt } from "react-icons/fa";
 import Search from "../../search/Search";
@@ -40,9 +41,9 @@ const ProductList = ({ products }) => {
   }, [dispatch, products, search]);
 
   return (
-    <div className="product-list" id="product">
-      <div className="top">
-        <div className="icons">
+    <div className={styles["product-list"]} id="product">
+      <div className={styles.top}>
+        <div className={styles.icons}>
           <BsFillGridFill
             size={22}
             color="orangered"
@@ -60,7 +61,7 @@ const ProductList = ({ products }) => {
           <Search value={search} onChange={(e) => setSearch(e.target.value)} />
         </div>
         {/* Sort Products */}
-        <div className="sort">
+        <div className={styles.sort}>
           <label>Sort by:</label>
           <select value={sort} onChange={(e) => setSort(e.target.value)}>
             <option value="latest">Latest</option>
@@ -72,7 +73,7 @@ const ProductList = ({ products }) => {
         </div>
       </div>
 
-      <div className={grid ? `${grid}` : `${list}`}>
+      <div className={grid ? `${styles.grid}` : `${styles.list}`}>
         {products.lenght === 0 ? (
           <p>No product found.</p>
         ) : (

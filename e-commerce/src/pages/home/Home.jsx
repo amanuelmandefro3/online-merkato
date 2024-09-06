@@ -1,6 +1,8 @@
 import React, {useEffect} from 'react'
 import Product from '../../components/product/Product'
-import './Home.css'
+import styles from './Home.module.scss'
+import Slider from './../../components/slider/Slider';
+
 
 const Home = () => {
   const url = window.location.href;
@@ -19,7 +21,8 @@ const Home = () => {
   }, [url]);
 
   return (
-    <div className='home'>
+    <div>
+      <Slider/>
       <Product />
     </div>
   );

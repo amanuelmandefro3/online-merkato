@@ -1,10 +1,10 @@
 import React from "react";
 import Card from "../card/Card";
-import './InfoBox.css'
+import styles from "./InfoBox.module.scss";
 
 const InfoBox = ({ cardClass, title, count, icon }) => {
   return (
-    <div className="info-box">
+    <div className={styles["info-box"]}>
       <Card cardClass={cardClass}>
         <h4>{title}</h4>
         <span>

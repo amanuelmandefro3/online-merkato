@@ -1,16 +1,16 @@
-import React from 'react'
-import  ReactDOM  from 'react-dom'
-import './Loader.css'
-import loader from '../../assets/loader.webp'
+import styles from "./Loader.module.scss";
+import loaderImg from "../../assets/loader.webp";
+import ReactDOM from "react-dom";
 
-function Loader() {
-  return ReactDOM.createPortal (
-    <div className='wrapper'>
-      <div className='loader'>
-            <img src={loader} alt='loading....' />
+const Loader = () => {
+  return ReactDOM.createPortal(
+    <div className={styles.wrapper}>
+      <div className={styles.loader}>
+        <img src={loaderImg} alt="Loading..." />
       </div>
-    </div>, document.getElementById('loader')
-  )
-}
+    </div>,
+    document.getElementById("loader")
+  );
+};
 
-export default Loader
+export default Loader;

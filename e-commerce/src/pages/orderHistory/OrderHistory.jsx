@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import Loader from '../../components/loader/Loader'
-import useFetchCollection from "../../customHooks/useFechCollection"
-import { selectUserID } from  "../../redux/slice/authSlice"
-import { selectOrderHistory, STORE_ORDERS } from "../../redux/slice/orderSlice"
-import './OrderHistory.css'
+import Loader from "../../components/loader/Loader";
+import useFetchCollection from "../../customHooks/useFetchCollection";
+import { selectUserID } from "../../redux/slice/authSlice";
+import { selectOrderHistory, STORE_ORDERS } from "../../redux/slice/orderSlice";
+import styles from "./OrderHistory.module.scss";
 
 const OrderHistory = () => {
   const { data, isLoading } = useFetchCollection("orders");
@@ -27,7 +27,7 @@ const OrderHistory = () => {
 
   return (
     <section>
-      <div className={`container order`}>
+      <div className={`container ${styles.order}`}>
         <h2>Your Order History</h2>
         <p>
           Open an order to leave a <b>Product Review</b>
@@ -35,7 +35,7 @@ const OrderHistory = () => {
         <br />
         <>
           {isLoading && <Loader />}
-          <div className="table">
+          <div className={styles.table}>
             {filteredOrders.length === 0 ? (
               <p>No order found</p>
             ) : (
@@ -73,8 +73,8 @@ const OrderHistory = () => {
                           <p
                             className={
                               orderStatus !== "Delivered"
-                                ? `pending`
-                                : `delivered`
+                                ? `${styles.pending}`
+                                : `${styles.delivered}`
                             }
                           >
                             {orderStatus}
