@@ -19,8 +19,8 @@ import ShowOnLogin, { ShowOnLogout } from '../hiddenLink/hiddenLink';
 import { AdminOnlyLink } from '../adminOnlyRoute/AdminOnlyRoute';
 
 const logo = (
-  <div className='logo'>
-    <Link to='/'>
+  <div className='logo' style={{color:"#28a745"}}>
+    <Link to='/' className='--color-success '>
       {/* <img src={logol} alt='logo' /> */}
       Online Merkato
     </Link>
@@ -151,7 +151,7 @@ const Header = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/contact" className={activeLink}>
+                <NavLink to="/about" className={activeLink}>
                   About Us
                 </NavLink>
               </li>

@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 // Pages
-import { Home, Login, Register, Reset, Admin, Contact } from "./pages";
+import { Home, Login, Register, Reset, Admin, Contact, About } from "./pages";
 // Components
 import { Header, Footer } from "./components";
 import AdminOnlyRoute from "./components/adminOnlyRoute/AdminOnlyRoute";
@@ -16,16 +16,21 @@ import OrderDetails from "./pages/orderDetails/OrderDetails";
 import ReviewProducts from "./components/reviewProducts/ReviewProducts";
 import NotFound from "./pages/notFound/NotFound";
 // import Contact from './pages/contact/Contact';
+import styles from "./App.module.scss";
+
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <ToastContainer />
+        <div className={`${styles.homeContainer}`}>
+
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/reset" element={<Reset />} />
@@ -50,6 +55,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
+        </div>
       </BrowserRouter>
     </>
   );

@@ -27,7 +27,7 @@ const Orders = () => {
 
   return (
     <>
-      <div className={styles.order}>
+      <div className={`${styles.order} ${styles.make}`}>
         <h2>Your Order History</h2>
         <p>
           Open an order to <b>Change order status</b>

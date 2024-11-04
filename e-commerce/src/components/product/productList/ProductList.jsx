@@ -87,13 +87,14 @@ const ProductList = ({ products }) => {
             })}
           </>
         )}
-        <Pagination
+        
+      </div>
+      <Pagination
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
           productsPerPage={productsPerPage}
           totalProducts={filteredProducts.length}
         />
-      </div>
     </div>
   );
 };
